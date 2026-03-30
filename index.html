@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Janilito Acusar | Employee Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Janilito Acusar | Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        * { box-sizing: border-box; }
+        :root {
+            --primary-yellow: #FFD60A;
+            --dark-blue: #001F54;
+            --accent-gold: #FFC300;
+            --emergency-red: #D90429;
+            --text-main: #000814;
+        }
+
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: #FFD60A; 
-            height: 100vh;
+            background: var(--primary-yellow);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            color: #000;
+            color: var(--text-main);
+            padding: 20px;
         }
 
         .bg-mesh {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #FFD60A 0%, #FFC300 40%, #001F54 100%);
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--accent-gold) 30%, var(--dark-blue) 100%);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 12s ease infinite;
         }
 
         @keyframes gradientBG {
@@ -38,140 +46,156 @@
         }
 
         .card {
-            width: 95%;
-            max-width: 380px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 2px solid #001F54;
-            border-radius: 30px;
-            padding: 25px;
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 40px;
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 30px 60px rgba(0, 31, 84, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .profile-wrapper {
-            position: relative;
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 15px;
-        }
+        .profile-header { margin-bottom: 25px; }
 
         .photo {
-            width: 100%;
-            height: 100%;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #001F54;
-            padding: 3px;
+            border: 6px solid var(--dark-blue);
+            padding: 5px;
             background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            font-size: 22px;
-            margin: 5px 0;
-            font-weight: 700;
-            color: #001F54;
+            font-size: 32px;
+            margin: 15px 0 5px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            letter-spacing: -1px;
         }
 
         .position {
-            color: #001F54; 
-            font-weight: 700;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
-        }
-
-        .info-grid {
-            background: rgba(0, 31, 84, 0.03);
-            border-radius: 15px;
-            padding: 12px;
-            margin: 15px 0;
-            text-align: left;
-            border: 1px solid rgba(0, 31, 84, 0.08);
-        }
-
-        /* NEW: Separate ICE Box */
-        .ice-box {
-            background: #fff0f0;
-            border: 1.5px dashed #d90429;
-            border-radius: 15px;
-            padding: 12px;
-            margin-bottom: 20px;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .ice-box i {
-            color: #fff;
-            background: #d90429;
-            padding: 10px;
-            border-radius: 10px;
             font-size: 14px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.7;
+            margin-bottom: 5px;
         }
 
-        .ice-content {
-            font-size: 13px;
+        .company {
+            font-size: 15px;
+            font-weight: 600;
+            color: #555;
             line-height: 1.4;
-            color: #333;
+            max-width: 280px;
+            margin: 0 auto 30px;
         }
 
-        .ice-label {
-            display: block;
-            font-weight: 800;
-            color: #d90429;
-            font-size: 11px;
-            text-transform: uppercase;
+        /* Information Grid */
+        .info-stack {
+            text-align: left;
+            margin-bottom: 25px;
         }
 
-        .info-item {
+        .info-box {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 13px;
-            color: #001F54;
+            gap: 18px;
+            background: rgba(0, 31, 84, 0.04);
+            padding: 18px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(0, 31, 84, 0.05);
         }
 
-        .info-item:last-child { margin-bottom: 0; }
-
-        .info-item i {
-            color: #FFC300;
-            background: #001F54;
-            padding: 6px;
-            border-radius: 6px;
-            font-size: 12px;
-            width: 26px;
-            text-align: center;
-        }
-
-        .btn-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 12px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.2s;
+        .info-box i {
+            font-size: 20px; /* Bigger Icons */
+            color: var(--accent-gold);
+            background: var(--dark-blue);
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+
+        .info-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--dark-blue);
+            line-height: 1.5;
+        }
+
+        /* Stunning ICE Box */
+        .ice-container {
+            background: var(--emergency-red);
+            border-radius: 24px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(217, 4, 41, 0.2);
+        }
+
+        .ice-container i {
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .ice-info { text-align: left; }
+        .ice-info .label { 
+            font-size: 11px; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        .ice-info .name { font-size: 17px; font-weight: 700; display: block; margin-top: 2px; }
+        .ice-info .num { font-size: 15px; font-weight: 600; opacity: 0.9; }
+
+        /* Buttons */
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn {
+            height: 60px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
             cursor: pointer;
         }
 
-        .btn-save { background: #001F54; color: #FFD60A; }
-        .btn-call { background: #fff; color: #001F54; border: 2px solid #001F54; }
+        .btn-save { background: var(--dark-blue); color: var(--primary-yellow); }
+        .btn-call { background: white; color: var(--dark-blue); border: 2.5px solid var(--dark-blue); }
 
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,31,84,0.2); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 31, 84, 0.2); }
+        .btn:active { transform: translateY(0); }
+
     </style>
 </head>
 <body>
@@ -179,36 +203,36 @@
 <div class="bg-mesh"></div>
 
 <div class="card">
-    <div class="profile-wrapper">
+    <div class="profile-header">
         <img src="Acusar.png" class="photo" alt="Janilito Acusar">
+        <h2>Janilito Acusar</h2>
+        <div class="position">Professional Mechanic</div>
+        <div class="company">Golden Continental Port Terminal Services Inc.</div>
     </div>
 
-    <h2>Janilito Acusar</h2>
-    <div class="position">Mechanic</div>
-
-    <div class="info-grid">
-        <div class="info-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Zone 16 Sta. Cruz, Tagoloan</span>
+    <div class="info-stack">
+        <div class="info-box">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <div class="info-text">Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001</div>
         </div>
-        <div class="info-item">
-            <i class="fa-solid fa-phone"></i>
-            <span>0917-123-4567</span>
-        </div>
-    </div>
-
-    <div class="ice-box">
-        <i class="fa-solid fa-truck-medical"></i>
-        <div class="ice-content">
-            <span class="ice-label">In Case of Emergency (ICE)</span>
-            <strong>Rosalie Roxas Acusar</strong><br>
-            0953-614-2143
+        <div class="info-box">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <div class="info-text">0917-123-4567</div>
         </div>
     </div>
 
-    <div class="btn-container">
+    <div class="ice-container">
+        <i class="fa-solid fa-suitcase-medical"></i>
+        <div class="ice-info">
+            <span class="label">Emergency Contact (ICE)</span>
+            <span class="name">Rosalie Roxas Acusar</span>
+            <span class="num">0953-614-2143</span>
+        </div>
+    </div>
+
+    <div class="actions">
         <button class="btn btn-save" id="saveBtn">
-            <i class="fa-solid fa-user-plus"></i> Save
+            <i class="fa-solid fa-plus"></i> Save
         </button>
         <a href="tel:09171234567" class="btn btn-call">
             <i class="fa-solid fa-phone"></i> Call
@@ -237,30 +261,32 @@
             const blob = await response.blob();
             const reader = new FileReader();
             reader.readAsDataURL(blob);
-            reader.onloadend = () => generateVCard(contact, reader.result.split(',')[1]);
+            reader.onloadend = () => downloadVCard(contact, reader.result.split(',')[1]);
         } catch {
-            generateVCard(contact, null);
+            downloadVCard(contact, null);
         }
     };
 
-    function generateVCard(contact, photo) {
+    function downloadVCard(contact, photo) {
         const lines = [
             "BEGIN:VCARD", "VERSION:3.0",
             `N:${contact.lastName};${contact.firstName};;;`,
             `FN:${contact.firstName} ${contact.lastName}`,
             `ORG:${contact.org}`, `TITLE:${contact.title}`,
             `TEL;TYPE=CELL,VOICE:${contact.phone}`,
-            `ADR;TYPE=HOME:;;;${contact.city};${contact.region};;${contact.country}`,
-            `NOTE:ICE: ${contact.iceName} (${contact.icePhone})`
+            `ADR;TYPE=WORK:;;;${contact.city};${contact.region};;${contact.country}`,
+            `NOTE:EMERGENCY CONTACT: ${contact.iceName} (${contact.icePhone})`
         ];
         if (photo) lines.push(`PHOTO;TYPE=PNG;ENCODING=b:${photo}`);
         lines.push("END:VCARD");
 
         const blob = new Blob([lines.join("\n")], { type: "text/vcard" });
+        const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
+        a.href = url;
         a.download = `${contact.firstName}_Profile.vcf`;
         a.click();
+        URL.revokeObjectURL(url);
     }
 </script>
 </body>
