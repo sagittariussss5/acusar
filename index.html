@@ -1,1 +1,153 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acusar</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #FEFCFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.card {
+    width: 90%;
+    max-width: 340px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border-top: 6px solid #FFD60A;
+}
+
+/* Photo */
+.photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FFD60A;
+    margin-bottom: 12px;
+}
+
+/* Text */
+h2 {
+    margin: 5px 0;
+    font-size: 20px;
+    color: #0A1128;
+}
+
+.position {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.company {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+/* Details */
+.details {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.item i {
+    width: 30px;
+    color: #FFD60A;
+    font-size: 16px;
+}
+
+/* Button */
+.btn {
+    display: block;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    background: #FFD60A;
+    color: #0A1128;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e6c200;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <img src="Acusar.png" class="photo" alt="Employee Photo">
+
+    <h2>Janilito Acusar</h2>
+    <div class="position">Mechanic</div>
+    <div class="company">Golden Continental Port Terminal Services Inc.</div>
+
+    <div class="details">
+        <div class="item">
+            <i class="fa-solid fa-briefcase"></i>
+            Mechanic
+        </div>
+
+        <div class="item">
+            <i class="fa-solid fa-location-dot"></i>
+            Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines 
+        </div>
+
+        <div class="item">
+            <i class="fa-solid fa-phone"></i>
+            0917-123-4567
+        </div>
+    </div>
+
+    <!-- Add to Contacts -->
+    <a class="btn" href="data:text/vcard;charset=utf-8,BEGIN:VCARD
+VERSION:3.0
+FN:Janilito Acusar
+ORG:Golden Continental Port Terminal Services Inc.
+TITLE:Mechanic
+TEL:09171234567
+ADR:;; Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines
+END:VCARD">
+        <i class="fa-solid fa-user-plus"></i> Add to Contacts
+    </a>
+
+    <!-- Call -->
+    <a class="btn" href="tel:09171234567">
+        <i class="fa-solid fa-phone"></i> Call Now
+    </a>
+
+</div>
+
+</body>
+</html>
