@@ -206,6 +206,9 @@
             org: "Golden Continental Port Terminal Services Inc.",
             title: "Mechanic",
             phone: "09171234567",
+            city: "Zone 11 Poblacion, Tagoloan",
+            region: "Misamis Oriental 9001",
+            country: "Philippines",
             // Pointing to your local image for the vCard
             photoUrl: "Acusar.png" 
         };
@@ -227,6 +230,8 @@
                     `ORG:${contact.org}`,
                     `TITLE:${contact.title}`,
                     `TEL;TYPE=CELL,VOICE:${contact.phone}`,
+                     // ADR Format: P.O. Box; Extended Address; Street; Locality (City); Region; Postal Code; Country
+                    `ADR;TYPE=WORK:;;;${contact.city};${contact.region};;${contact.country}`,
                     `PHOTO;TYPE=PNG;ENCODING=b:${base64Photo}`,
                     "END:VCARD"
                 ].join("\n");
@@ -256,6 +261,7 @@
             `ORG:${contact.org}`,
             `TITLE:${contact.title}`,
             `TEL;TYPE=CELL:${contact.phone}`,
+            `ADR;TYPE=WORK:;;;${contact.city};${contact.region};;${contact.country}`,
             "END:VCARD"
         ].join("\n");
         const blob = new Blob([vCard], { type: "text/vcard" });
