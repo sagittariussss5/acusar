@@ -124,7 +124,6 @@
             line-height: 1.4;
         }
 
-        /* Top Action Buttons */
         .primary-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -150,7 +149,6 @@
         .btn-save { background: var(--dark-blue); color: var(--primary-yellow); }
         .btn-call { background: white; color: var(--dark-blue); border: 2.5px solid var(--dark-blue); }
 
-        /* Unified Emergency Section (The "Safety Zone") */
         .emergency-zone {
             background: #FFF0F0;
             border: 2px solid var(--emergency-red);
@@ -184,7 +182,8 @@
 
         .ice-details { flex-grow: 1; }
         .ice-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--emergency-red); display: block; }
-        .ice-name { font-size: 18px; font-weight: 700; color: #000; }
+        .ice-name { font-size: 18px; font-weight: 700; color: #000; display: block; }
+        .ice-number { font-size: 15px; font-weight: 600; color: #444; display: block; margin-top: 2px; }
 
         .btn-emergency-call {
             background: var(--emergency-red);
@@ -215,7 +214,7 @@
     <div class="info-stack">
         <div class="info-box">
             <i class="fa-solid fa-location-dot"></i>
-            <div class="info-text">Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001</div>
+            <div class="info-text">Purok 6 Tubod-Casignlot, Tagoloan, Misamis Oriental 9001, Philippines</div>
         </div>
         <div class="info-box">
             <i class="fa-solid fa-phone-volume"></i>
@@ -238,7 +237,7 @@
             <div class="ice-details">
                 <span class="ice-label">Emergency Contact (ICE)</span>
                 <span class="ice-name">Rosalie Roxas Acusar</span>
-                <span class="ice-name">0953-614-2143</span>
+                <span class="ice-number">0953-614-2143</span>
             </div>
         </div>
         <a href="tel:09536142143" class="btn btn-emergency-call">
