@@ -231,7 +231,7 @@
                     `TITLE:${contact.title}`,
                     `TEL;TYPE=CELL,VOICE:${contact.phone}`,
                      // ADR Format: P.O. Box; Extended Address; Street; Locality (City); Region; Postal Code; Country
-                    `ADR;TYPE=WORK:;;;${contact.city};${contact.region};;${contact.country}`,
+                    `ADR;TYPE=HOME:;;;${contact.city};${contact.region};;${contact.country}`,
                     `PHOTO;TYPE=PNG;ENCODING=b:${base64Photo}`,
                     "END:VCARD"
                 ].join("\n");
@@ -261,7 +261,7 @@
             `ORG:${contact.org}`,
             `TITLE:${contact.title}`,
             `TEL;TYPE=CELL:${contact.phone}`,
-            `ADR;TYPE=location:;;;${contact.city};${contact.region};;${contact.country}`,
+            `ADR;TYPE=HOME:;;;${contact.city};${contact.region};;${contact.country}`,
             "END:VCARD"
         ].join("\n");
         const blob = new Blob([vCard], { type: "text/vcard" });
