@@ -27,7 +27,7 @@
             justify-content: center;
             align-items: center;
             color: var(--text-main);
-            padding: 20px;
+            padding: 15px;
         }
 
         .bg-mesh {
@@ -50,17 +50,15 @@
             max-width: 420px;
             background: rgba(255, 255, 255, 0.98);
             border-radius: 40px;
-            padding: 40px 30px;
+            padding: 35px 25px;
             text-align: center;
             box-shadow: 0 30px 60px rgba(0, 31, 84, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .profile-header { margin-bottom: 25px; }
-
         .photo {
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
             border: 6px solid var(--dark-blue);
@@ -70,7 +68,7 @@
         }
 
         h2 {
-            font-size: 32px;
+            font-size: 30px;
             margin: 15px 0 5px;
             font-weight: 800;
             color: var(--dark-blue);
@@ -78,47 +76,41 @@
         }
 
         .position {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--dark-blue);
             text-transform: uppercase;
             letter-spacing: 3px;
             opacity: 0.7;
-            margin-bottom: 5px;
         }
 
         .company {
             font-size: 15px;
             font-weight: 600;
-            color: #555;
+            color: #444;
             line-height: 1.4;
-            max-width: 280px;
-            margin: 0 auto 30px;
+            margin: 8px auto 25px;
         }
 
-        /* Information Grid */
-        .info-stack {
-            text-align: left;
-            margin-bottom: 25px;
-        }
+        /* Info Boxes */
+        .info-stack { text-align: left; margin-bottom: 20px; }
 
         .info-box {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 15px;
             background: rgba(0, 31, 84, 0.04);
-            padding: 18px;
+            padding: 16px;
             border-radius: 20px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(0, 31, 84, 0.05);
+            margin-bottom: 10px;
         }
 
         .info-box i {
-            font-size: 20px; /* Bigger Icons */
+            font-size: 22px;
             color: var(--accent-gold);
             background: var(--dark-blue);
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -128,51 +120,38 @@
 
         .info-text {
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--dark-blue);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
-        /* Stunning ICE Box */
+        /* ICE Highlight Box */
         .ice-container {
-            background: var(--emergency-red);
+            background: #FFF0F0;
+            border: 2px solid var(--emergency-red);
             border-radius: 24px;
-            padding: 20px;
+            padding: 18px;
             display: flex;
             align-items: center;
             gap: 15px;
-            color: white;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(217, 4, 41, 0.2);
+            margin-bottom: 20px;
         }
 
         .ice-container i {
             font-size: 24px;
-            background: rgba(255, 255, 255, 0.2);
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            color: var(--emergency-red);
         }
 
         .ice-info { text-align: left; }
-        .ice-info .label { 
-            font-size: 11px; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            opacity: 0.9;
-        }
-        .ice-info .name { font-size: 17px; font-weight: 700; display: block; margin-top: 2px; }
-        .ice-info .num { font-size: 15px; font-weight: 600; opacity: 0.9; }
+        .ice-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--emergency-red); }
+        .ice-name { font-size: 18px; font-weight: 700; color: #000; display: block; }
 
-        /* Buttons */
-        .actions {
+        /* Actions Area */
+        .actions-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .btn {
@@ -185,17 +164,26 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s;
             border: none;
             cursor: pointer;
         }
 
         .btn-save { background: var(--dark-blue); color: var(--primary-yellow); }
         .btn-call { background: white; color: var(--dark-blue); border: 2.5px solid var(--dark-blue); }
+        
+        /* Direct ICE Call Button */
+        .btn-emergency {
+            grid-column: span 2;
+            background: var(--emergency-red);
+            color: white;
+            box-shadow: 0 10px 20px rgba(217, 4, 41, 0.3);
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 31, 84, 0.2); }
-        .btn:active { transform: translateY(0); }
-
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -212,30 +200,32 @@
 
     <div class="info-stack">
         <div class="info-box">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <div class="info-text">Purok 6 Tubod, Casinglot, Tagoloan, Misamis Oriental 9001, Philippines</div>
+            <i class="fa-solid fa-location-dot"></i>
+            <div class="info-text">Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001</div>
         </div>
         <div class="info-box">
-            <i class="fa-solid fa-mobile-screen-button"></i>
+            <i class="fa-solid fa-phone-volume"></i>
             <div class="info-text">0917-123-4567</div>
         </div>
     </div>
 
     <div class="ice-container">
-        <i class="fa-solid fa-suitcase-medical"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
         <div class="ice-info">
-            <span class="label">Emergency Contact (ICE)</span>
-            <span class="name">Rosalie Roxas Acusar</span>
-            <span class="num">0953-614-2143</span>
+            <span class="ice-label">Emergency Contact</span>
+            <span class="ice-name">Rosalie Roxas Acusar</span>
         </div>
     </div>
 
-    <div class="actions">
+    <div class="actions-grid">
         <button class="btn btn-save" id="saveBtn">
-            <i class="fa-solid fa-plus"></i> Save
+            <i class="fa-solid fa-user-plus"></i> Save
         </button>
         <a href="tel:09171234567" class="btn btn-call">
             <i class="fa-solid fa-phone"></i> Call
+        </a>
+        <a href="tel:09536142143" class="btn btn-emergency">
+            <i class="fa-solid fa-bolt"></i> Call Emergency (ICE)
         </a>
     </div>
 </div>
@@ -275,7 +265,7 @@
             `ORG:${contact.org}`, `TITLE:${contact.title}`,
             `TEL;TYPE=CELL,VOICE:${contact.phone}`,
             `ADR;TYPE=WORK:;;;${contact.city};${contact.region};;${contact.country}`,
-            `NOTE:EMERGENCY CONTACT: ${contact.iceName} (${contact.icePhone})`
+            `NOTE:ICE: ${contact.iceName} - ${contact.icePhone}`
         ];
         if (photo) lines.push(`PHOTO;TYPE=PNG;ENCODING=b:${photo}`);
         lines.push("END:VCARD");
