@@ -3,94 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Card - Janilito Acusar</title>
+    <title>Janilito Acusar | Professional Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
-        /* Blue and Yellow Theme */
-        :root {
-            --primary-blue: #003366;
-            --accent-yellow: #FFCC00;
-            --light-gray: #f4f4f4;
-        }
-
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
+        * { box-sizing: border-box; }
+        
+        body {
             margin: 0;
-            background-color: var(--light-gray); 
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
         }
 
-        .card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-            text-align: center; 
-            border-top: 8px solid var(--primary-blue);
-            width: 300px;
+        /* Animated Background Mesh */
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #001F54 0%, #0a0a0a 50%, #1282A2 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
-        .profile-icon {
-            font-size: 50px;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        h2 { 
-            color: var(--primary-blue); 
-            margin: 10px 0 5px 0;
-            font-size: 22px;
+        .card {
+            width: 90%;
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
-        p { 
-            color: #666; 
-            margin: 0 0 20px 0;
+        .profile-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFD60A;
+            padding: 5px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            margin: 10px 0 5px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .position {
+            color: #FFD60A;
+            font-weight: 600;
             font-size: 14px;
-            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
 
-        .company-tag {
-            font-weight: bold;
-            color: var(--primary-blue);
+        .company {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 30px;
         }
 
-        button { 
-            background: var(--accent-yellow); 
-            color: var(--primary-blue); 
-            border: none; 
-            padding: 14px 28px; 
-            border-radius: 30px; 
-            cursor: pointer; 
-            font-size: 16px; 
-            font-weight: bold;
-            transition: transform 0.2s, background 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .info-grid {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
         }
 
-        button:hover { 
-            background: #e6b800; 
-            transform: translateY(-2px);
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
         }
 
-        button:active {
-            transform: translateY(0);
+        .info-item:last-child { margin-bottom: 0; }
+
+        .info-item i {
+            color: #1282A2;
+            font-size: 18px;
+            width: 25px;
+        }
+
+        .btn-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-save {
+            background: #FFD60A;
+            color: #000;
+        }
+
+        .btn-call {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="profile-icon">👤</div>
-        <h2>Janilito Acusar</h2>
-        <p>Mechanic<br>
-        <span class="company-tag">Golden Continental Port Terminal Services Inc.</span></p>
-        
-        <button id="saveBtn">DOWNLOAD VCARD</button>
+<div class="bg-mesh"></div>
+
+<div class="card">
+    <div class="profile-wrapper">
+        <img src="Acusar.png" class="photo" alt="Janilito Acusar">
     </div>
 
-    <script>
+    <h2>Janilito Acusar</h2>
+    <div class="position">Lead Mechanic</div>
+    <div class="company">Golden Continental Port Terminal Services Inc.</div>
+
+    <div class="info-grid">
+        <div class="info-item">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span>Heavy Machinery Maintenance</span>
+        </div>
+        <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Tagoloan, Misamis Oriental</span>
+        </div>
+        <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>0917-123-4567</span>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button class="btn btn-save" id="saveBtn">
+            <i class="fa-solid fa-user-plus"></i> Save
+        </button>
+        <a href="tel:09171234567" class="btn btn-call">
+            <i class="fa-solid fa-phone"></i> Call
+        </a>
+    </div>
+</div>
+
+<script>
         document.getElementById("saveBtn").onclick = async function() {
             // Data Setup
             const contact = {
@@ -158,6 +258,5 @@
             a.click();
         }
     </script>
-
 </body>
 </html>
