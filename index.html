@@ -1,196 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acusar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janilito Acusar | Professional Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        /* Animated Background Mesh */
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #001F54 0%, #0a0a0a 50%, #1282A2 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #001F54, #1282A2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-/* Card */
-.card {
-    width: 90%;
-    max-width: 340px;
-    background: #fff;
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    position: relative;
-    overflow: hidden;
-}
+        .card {
+            width: 90%;
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
 
-/* Top Accent */
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #FFD60A, #1282A2);
-}
+        .profile-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+        }
 
-/* Photo */
-.photo {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #FFD60A;
-    margin-bottom: 12px;
-}
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFD60A;
+            padding: 5px;
+            background: rgba(255,255,255,0.1);
+        }
 
-/* Text */
-h2 {
-    margin: 5px 0;
-    font-size: 20px;
-    color: #0A1128;
-}
+        h2 {
+            font-size: 26px;
+            margin: 10px 0 5px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-.position {
-    font-size: 14px;
-    color: #1282A2;
-    font-weight: 500;
-}
+        .position {
+            color: #FFD60A;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
 
-.company {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 15px;
-}
+        .company {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
 
-/* Details */
-.details {
-    text-align: left;
-    margin-top: 15px;
-}
+        .info-grid {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
 
-.item {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    font-size: 14px;
-    color: #333;
-}
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
 
-.item i {
-    width: 30px;
-    color: #1282A2;
-    font-size: 16px;
-}
+        .info-item:last-child { margin-bottom: 0; }
 
-/* Buttons */
-.btn {
-    display: block;
-    margin-top: 12px;
-    padding: 12px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: 0.3s;
-}
+        .info-item i {
+            color: #1282A2;
+            font-size: 18px;
+            width: 25px;
+        }
 
-/* Add Contact Button */
-.btn-contact {
-    background: linear-gradient(90deg, #FFD60A, #FFC300);
-    color: #0A1128;
-}
+        .btn-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
 
-.btn-contact:hover {
-    transform: translateY(-2px);
-}
+        .btn {
+            padding: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
 
-/* Call Button */
-.btn-call {
-    background: #1282A2;
-    color: #fff;
-}
+        .btn-save {
+            background: #FFD60A;
+            color: #000;
+        }
 
-.btn-call:hover {
-    background: #0e6d86;
-}
-</style>
+        .btn-call {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+    </style>
 </head>
-
 <body>
 
+<div class="bg-mesh"></div>
+
 <div class="card">
-    <img src="Acusar.png" class="photo" alt="Employee Photo">
+    <div class="profile-wrapper">
+        <img src="Acusar.png" class="photo" alt="Janilito Acusar">
+    </div>
 
     <h2>Janilito Acusar</h2>
-    <div class="position">Mechanic</div>
+    <div class="position">Lead Mechanic</div>
     <div class="company">Golden Continental Port Terminal Services Inc.</div>
 
-    <div class="details">
-        <div class="item">
-            <i class="fa-solid fa-briefcase"></i>
-            Mechanic
+    <div class="info-grid">
+        <div class="info-item">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span>Heavy Machinery Maintenance</span>
         </div>
-
-        <div class="item">
+        <div class="info-item">
             <i class="fa-solid fa-location-dot"></i>
-            Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines
+            <span>Tagoloan, Misamis Oriental</span>
         </div>
-
-        <div class="item">
+        <div class="info-item">
             <i class="fa-solid fa-phone"></i>
-            0917-123-4567
+            <span>0917-123-4567</span>
         </div>
     </div>
 
-    <!-- Add to Contacts (WORKING) -->
-   <a class="btn btn-contact" id="saveContact">
-    <i class="fa-solid fa-user-plus"></i> Add to Contacts
-</a>
+    <div class="btn-container">
+        <button class="btn btn-save" id="saveBtn">
+            <i class="fa-solid fa-user-plus"></i> Save
+        </button>
+        <a href="tel:09171234567" class="btn btn-call">
+            <i class="fa-solid fa-phone"></i> Call
+        </a>
+    </div>
+</div>
 
 <script>
-document.getElementById("saveContact").addEventListener("click", function () {
-
-    const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Janilito Acusar
-ORG:Golden Continental Port Terminal Services Inc.
-TITLE:Mechanic
-TEL;TYPE=CELL:09171234567
-ADR:;;Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines
-END:VCARD`;
-
-    const blob = new Blob([vCardData], { type: "text/vcard" });
+document.getElementById("saveBtn").onclick = function() {
+    const vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:Janilito Acusar\nORG:Golden Continental Port Terminal Services Inc.\nTITLE:Mechanic\nTEL:09171234567\nEND:VCARD`;
+    const blob = new Blob([vCard], { type: "text/vcard" });
     const url = window.URL.createObjectURL(blob);
-
     const a = document.createElement("a");
     a.href = url;
     a.download = "Janilito_Acusar.vcf";
-    document.body.appendChild(a);
     a.click();
-
-    document.body.removeChild(a);
-});
+};
 </script>
-
-    <!-- Call -->
-    <a class="btn btn-call" href="tel:09171234567">
-        <i class="fa-solid fa-phone"></i> Call Now
-    </a>
-
-</div>
 
 </body>
 </html>
