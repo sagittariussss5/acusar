@@ -192,7 +192,7 @@
 
 <script>
 document.getElementById("saveBtn").onclick = function() {
-    const vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:Janilito Acusar\nORG:Golden Continental Port Terminal Services Inc.\nTITLE:Mechanic\nTEL:09171234567\nEND:VCARD`;
+    const vCard = `BEGIN:VCARD\nVERSION:3.0\nORG:Golden Continental Port Terminal Services Inc.\nFN:Janilito Acusar\nTITLE:Mechanic\nTEL:09171234567\nEND:VCARD`;
     const blob = new Blob([vCard], { type: "text/vcard" });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
