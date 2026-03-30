@@ -156,18 +156,34 @@ h2 {
     </div>
 
     <!-- Add to Contacts (WORKING) -->
-    <a class="btn btn-contact" download="Janilito_Acusar.vcf"
-       href="data:text/vcard;charset=utf-8,
-BEGIN:VCARD
+   <a class="btn btn-contact" id="saveContact">
+    <i class="fa-solid fa-user-plus"></i> Add to Contacts
+</a>
+
+<script>
+document.getElementById("saveContact").addEventListener("click", function () {
+
+    const vCardData = `BEGIN:VCARD
 VERSION:3.0
 FN:Janilito Acusar
 ORG:Golden Continental Port Terminal Services Inc.
 TITLE:Mechanic
 TEL;TYPE=CELL:09171234567
 ADR:;;Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines
-END:VCARD">
-        <i class="fa-solid fa-user-plus"></i> Add to Contacts
-    </a>
+END:VCARD`;
+
+    const blob = new Blob([vCardData], { type: "text/vcard" });
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Janilito_Acusar.vcf";
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+});
+</script>
 
     <!-- Call -->
     <a class="btn btn-call" href="tel:09171234567">
