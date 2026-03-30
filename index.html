@@ -92,8 +92,7 @@
             margin: 8px auto 25px;
         }
 
-        /* Info Boxes */
-        .info-stack { text-align: left; margin-bottom: 20px; }
+        .info-stack { text-align: left; margin-bottom: 25px; }
 
         .info-box {
             display: flex;
@@ -125,33 +124,12 @@
             line-height: 1.4;
         }
 
-        /* ICE Highlight Box */
-        .ice-container {
-            background: #FFF0F0;
-            border: 2px solid var(--emergency-red);
-            border-radius: 24px;
-            padding: 18px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .ice-container i {
-            font-size: 24px;
-            color: var(--emergency-red);
-        }
-
-        .ice-info { text-align: left; }
-        .ice-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--emergency-red); }
-        .ice-name { font-size: 18px; font-weight: 700; color: #000; display: block; }
-
-        /* Actions Area */
-        .actions-grid {
+        /* Top Action Buttons */
+        .primary-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 25px;
         }
 
         .btn {
@@ -171,19 +149,55 @@
 
         .btn-save { background: var(--dark-blue); color: var(--primary-yellow); }
         .btn-call { background: white; color: var(--dark-blue); border: 2.5px solid var(--dark-blue); }
-        
-        /* Direct ICE Call Button */
-        .btn-emergency {
-            grid-column: span 2;
+
+        /* Unified Emergency Section (The "Safety Zone") */
+        .emergency-zone {
+            background: #FFF0F0;
+            border: 2px solid var(--emergency-red);
+            border-radius: 28px;
+            padding: 20px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .ice-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .ice-header i {
+            font-size: 24px;
+            color: var(--emergency-red);
+            background: white;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--emergency-red);
+        }
+
+        .ice-details { flex-grow: 1; }
+        .ice-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--emergency-red); display: block; }
+        .ice-name { font-size: 18px; font-weight: 700; color: #000; }
+
+        .btn-emergency-call {
             background: var(--emergency-red);
             color: white;
-            box-shadow: 0 10px 20px rgba(217, 4, 41, 0.3);
-            font-size: 17px;
+            width: 100%;
+            font-size: 16px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(217, 4, 41, 0.25);
         }
 
         .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .btn-emergency-call:hover { background: #B20322; }
     </style>
 </head>
 <body>
@@ -201,7 +215,7 @@
     <div class="info-stack">
         <div class="info-box">
             <i class="fa-solid fa-location-dot"></i>
-            <div class="info-text">Purok 6 Tubod-Casignlot, Tagoloan, Misamis Oriental 9001, Philippines</div>
+            <div class="info-text">Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001</div>
         </div>
         <div class="info-box">
             <i class="fa-solid fa-phone-volume"></i>
@@ -209,23 +223,25 @@
         </div>
     </div>
 
-    <div class="ice-container">
-        <i class="fa-solid fa-circle-exclamation"></i>
-        <div class="ice-info">
-            <span class="ice-label">Emergency Contact</span>
-            <span class="ice-name">Rosalie Roxas Acusar</span>
-        </div>
-    </div>
-
-    <div class="actions-grid">
+    <div class="primary-actions">
         <button class="btn btn-save" id="saveBtn">
             <i class="fa-solid fa-user-plus"></i> Save
         </button>
         <a href="tel:09171234567" class="btn btn-call">
             <i class="fa-solid fa-phone"></i> Call
         </a>
-        <a href="tel:09536142143" class="btn btn-emergency">
-            <i class="fa-solid fa-bolt"></i> Call Emergency (ICE)
+    </div>
+
+    <div class="emergency-zone">
+        <div class="ice-header">
+            <i class="fa-solid fa-kit-medical"></i>
+            <div class="ice-details">
+                <span class="ice-label">Emergency Contact (ICE)</span>
+                <span class="ice-name">Rosalie Roxas Acusar</span>
+            </div>
+        </div>
+        <a href="tel:09536142143" class="btn btn-emergency-call">
+            <i class="fa-solid fa-phone-flip"></i> Call Emergency Now
         </a>
     </div>
 </div>
