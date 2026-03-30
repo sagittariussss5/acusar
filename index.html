@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +15,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #FEFCFB;
+    background: linear-gradient(135deg, #001F54, #1282A2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,11 +27,23 @@ body {
     width: 90%;
     max-width: 340px;
     background: #fff;
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    border-top: 6px solid #FFD60A;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top Accent */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #FFD60A, #1282A2);
 }
 
 /* Photo */
@@ -41,7 +52,7 @@ body {
     height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #FFD60A;
+    border: 4px solid #FFD60A;
     margin-bottom: 12px;
 }
 
@@ -54,20 +65,20 @@ h2 {
 
 .position {
     font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
+    color: #1282A2;
+    font-weight: 500;
 }
 
 .company {
     font-size: 13px;
-    color: #888;
+    color: #777;
     margin-bottom: 15px;
 }
 
 /* Details */
 .details {
     text-align: left;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .item {
@@ -80,26 +91,40 @@ h2 {
 
 .item i {
     width: 30px;
-    color: #FFD60A;
+    color: #1282A2;
     font-size: 16px;
 }
 
-/* Button */
+/* Buttons */
 .btn {
     display: block;
-    margin-top: 15px;
+    margin-top: 12px;
     padding: 12px;
     border-radius: 30px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    background: #FFD60A;
-    color: #0A1128;
     transition: 0.3s;
 }
 
-.btn:hover {
-    background: #e6c200;
+/* Add Contact Button */
+.btn-contact {
+    background: linear-gradient(90deg, #FFD60A, #FFC300);
+    color: #0A1128;
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+}
+
+/* Call Button */
+.btn-call {
+    background: #1282A2;
+    color: #fff;
+}
+
+.btn-call:hover {
+    background: #0e6d86;
 }
 </style>
 </head>
@@ -121,7 +146,7 @@ h2 {
 
         <div class="item">
             <i class="fa-solid fa-location-dot"></i>
-            Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines 
+            Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines
         </div>
 
         <div class="item">
@@ -130,20 +155,22 @@ h2 {
         </div>
     </div>
 
-    <!-- Add to Contacts -->
-    <a class="btn" href="data:text/vcard;charset=utf-8,BEGIN:VCARD
+    <!-- Add to Contacts (WORKING) -->
+    <a class="btn btn-contact" download="Janilito_Acusar.vcf"
+       href="data:text/vcard;charset=utf-8,
+BEGIN:VCARD
 VERSION:3.0
 FN:Janilito Acusar
 ORG:Golden Continental Port Terminal Services Inc.
 TITLE:Mechanic
-TEL:09171234567
-ADR:;; Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines
+TEL;TYPE=CELL:09171234567
+ADR:;;Zone 16 Sta. Cruz, Tagoloan, Misamis Oriental 9001, Philippines
 END:VCARD">
         <i class="fa-solid fa-user-plus"></i> Add to Contacts
     </a>
 
     <!-- Call -->
-    <a class="btn" href="tel:09171234567">
+    <a class="btn btn-call" href="tel:09171234567">
         <i class="fa-solid fa-phone"></i> Call Now
     </a>
 
