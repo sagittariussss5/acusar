@@ -13,21 +13,21 @@
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
+            background: #FFD60A; /* Primary Yellow Background */
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            color: white;
+            color: #000;
         }
 
-        /* Animated Background Mesh */
+        /* Animated Background Mesh - Re-centered on Yellow/Gold */
         .bg-mesh {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #001F54 0%, #0a0a0a 50%, #1282A2 100%);
+            background: linear-gradient(45deg, #FFD60A 0%, #FFC300 40%, #001F54 100%);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
         }
@@ -39,16 +39,15 @@
         }
 
         .card {
-            width: 90%;
+            width: 95%;
             max-width: 380px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.9); /* Lighter card for contrast */
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid #001F54; /* Blue Border */
             border-radius: 30px;
             padding: 40px 25px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
 
         .profile-wrapper {
@@ -63,39 +62,43 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #FFD60A;
-            padding: 5px;
-            background: rgba(255,255,255,0.1);
+            border: 4px solid #001F54; /* Blue Ring */
+            padding: 3px;
+            background: white;
         }
 
         h2 {
             font-size: 26px;
             margin: 10px 0 5px;
             font-weight: 700;
+            color: #001F54; /* Blue Name */
             letter-spacing: -0.5px;
         }
 
         .position {
-            color: #FFD60A;
-            font-weight: 600;
+            color: #001F54; 
+            font-weight: 700;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 8px;
+            opacity: 0.8;
         }
 
         .company {
             font-size: 13px;
-            color: #aaa;
+            color: #444;
             margin-bottom: 30px;
+            font-weight: 500;
         }
 
         .info-grid {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 31, 84, 0.05); /* Very light blue tint */
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 30px;
             text-align: left;
+            border: 1px solid rgba(0, 31, 84, 0.1);
         }
 
         .info-item {
@@ -104,14 +107,19 @@
             gap: 15px;
             margin-bottom: 15px;
             font-size: 14px;
+            color: #001F54;
         }
 
         .info-item:last-child { margin-bottom: 0; }
 
         .info-item i {
-            color: #1282A2;
-            font-size: 18px;
-            width: 25px;
+            color: #FFC300; /* Yellow icons for contrast against text */
+            background: #001F54;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            width: 32px;
+            text-align: center;
         }
 
         .btn-container {
@@ -124,7 +132,7 @@
             padding: 15px;
             border-radius: 15px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 14px;
             transition: 0.3s;
             display: flex;
@@ -136,19 +144,19 @@
         }
 
         .btn-save {
-            background: #FFD60A;
-            color: #000;
+            background: #001F54; /* Blue is now the primary button */
+            color: #FFD60A; /* Yellow text */
         }
 
         .btn-call {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
+            background: #fff;
+            color: #001F54;
+            border: 2px solid #001F54;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            filter: brightness(1.1);
+            box-shadow: 0 5px 15px rgba(0,31,84,0.3);
         }
     </style>
 </head>
@@ -191,72 +199,72 @@
 </div>
 
 <script>
-        document.getElementById("saveBtn").onclick = async function() {
-            // Data Setup
-            const contact = {
-                firstName: "Janilito",
-                lastName: "Acusar",
-                org: "Golden Continental Port Terminal Services Inc.",
-                title: "Mechanic",
-                phone: "09171234567",
-                // Ensure this URL is a direct link to a JPEG/PNG
-                photoUrl: "https://via.placeholder.com/200/003366/FFCC00?text=JA" 
-            };
-
-            try {
-                // 1. Convert Image to Base64
-                const response = await fetch(contact.photoUrl);
-                const blob = await response.blob();
-                const reader = new FileReader();
-
-                reader.readAsDataURL(blob);
-                reader.onloadend = function() {
-                    const base64Photo = reader.result.split(',')[1];
-
-                    // 2. Build the vCard 3.0 String
-                    // We use "N" to force the name as the primary identifier
-                    const vCard = [
-                        "BEGIN:VCARD",
-                        "VERSION:3.0",
-                        `N:${contact.lastName};${contact.firstName};;;`,
-                        `FN:${contact.firstName} ${contact.lastName}`,
-                        `ORG:${contact.org}`,
-                        `TITLE:${contact.title}`,
-                        `TEL;TYPE=CELL,VOICE:${contact.phone}`,
-                        `PHOTO;TYPE=JPEG;ENCODING=b:${base64Photo}`,
-                        "END:VCARD"
-                    ].join("\n");
-
-                    // 3. Create the Blob and Trigger Download
-                    const vCardBlob = new Blob([vCard], { type: "text/vcard" });
-                    const url = window.URL.createObjectURL(vCardBlob);
-                    const a = document.createElement("a");
-                    
-                    a.href = url;
-                    a.download = `${contact.firstName}_${contact.lastName}.vcf`;
-                    document.body.appendChild(a);
-                    a.click();
-                    
-                    // Cleanup
-                    document.body.removeChild(a);
-                    window.URL.revokeObjectURL(url);
-                };
-            } catch (err) {
-                alert("Error fetching photo. Saving contact without picture.");
-                // Fallback: Save without photo if image fetch fails (CORS issue)
-                saveWithoutPhoto(contact);
-            }
+    document.getElementById("saveBtn").onclick = async function() {
+        const contact = {
+            firstName: "Janilito",
+            lastName: "Acusar",
+            org: "Golden Continental Port Terminal Services Inc.",
+            title: "Lead Mechanic",
+            phone: "09171234567",
+            // Pointing to your local image for the vCard
+            photoUrl: "Acusar.png" 
         };
 
-        function saveWithoutPhoto(contact) {
-            const vCard = `BEGIN:VCARD\nVERSION:3.0\nN:${contact.lastName};${contact.firstName};;;\nFN:${contact.firstName} ${contact.lastName}\nORG:${contact.org}\nTITLE:${contact.title}\nTEL;TYPE=CELL:${contact.phone}\nEND:VCARD`;
-            const blob = new Blob([vCard], { type: "text/vcard" });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `${contact.firstName}_${contact.lastName}.vcf`;
-            a.click();
+        try {
+            const response = await fetch(contact.photoUrl);
+            const blob = await response.blob();
+            const reader = new FileReader();
+
+            reader.readAsDataURL(blob);
+            reader.onloadend = function() {
+                const base64Photo = reader.result.split(',')[1];
+
+                const vCard = [
+                    "BEGIN:VCARD",
+                    "VERSION:3.0",
+                    `N:${contact.lastName};${contact.firstName};;;`,
+                    `FN:${contact.firstName} ${contact.lastName}`,
+                    `ORG:${contact.org}`,
+                    `TITLE:${contact.title}`,
+                    `TEL;TYPE=CELL,VOICE:${contact.phone}`,
+                    `PHOTO;TYPE=PNG;ENCODING=b:${base64Photo}`,
+                    "END:VCARD"
+                ].join("\n");
+
+                const vCardBlob = new Blob([vCard], { type: "text/vcard" });
+                const url = window.URL.createObjectURL(vCardBlob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `${contact.firstName}_${contact.lastName}.vcf`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            };
+        } catch (err) {
+            console.warn("Photo fetch failed, saving without photo.");
+            saveWithoutPhoto(contact);
         }
-    </script>
+    };
+
+    function saveWithoutPhoto(contact) {
+        const vCard = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            `N:${contact.lastName};${contact.firstName};;;`,
+            `FN:${contact.firstName} ${contact.lastName}`,
+            `ORG:${contact.org}`,
+            `TITLE:${contact.title}`,
+            `TEL;TYPE=CELL:${contact.phone}`,
+            "END:VCARD"
+        ].join("\n");
+        const blob = new Blob([vCard], { type: "text/vcard" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${contact.firstName}_${contact.lastName}.vcf`;
+        a.click();
+    }
+</script>
 </body>
 </html>
